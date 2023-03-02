@@ -68,18 +68,25 @@ function showRealData(response) {
   header1.innerHTML = response.data.name;
 
   showTime();
-
+  console.log(response.data);
+  let icon =  response.data.weather[0].icon;
   let weatherCondition = response.data.weather[0].description;
   let headerConditionsWeather = document.getElementById(
     "weather-condition-header"
   );
-  console.log(weatherCondition);
+
   headerConditionsWeather.innerHTML = weatherCondition;
 
   let temp = Math.round(response.data.main.temp);
-  console.log(temp);
+
   let temperatureHeader = document.getElementById("degree");
   temperatureHeader.innerHTML = temp;
+
+  let iconElement = document.querySelector("#icon-main-city");
+  iconElement.setAttribute(
+      "src",
+      `http://openweathermap.org/img/wn/${icon}@2x.png`
+  )
 }
 
 function getRequest(event) {
@@ -99,7 +106,7 @@ function showMyLocationTemp(position) {
   axios.get(weatherUrl).then(showRealData);
 }
 
-function showMyCurrentLocationWeather(event) {
+function showMyCurrentLocationWeather(){
   navigator.geolocation.getCurrentPosition(showMyLocationTemp);
 }
 
