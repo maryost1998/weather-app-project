@@ -90,6 +90,7 @@ function showRealData(response) {
 }
 
 function getRequest(event) {
+
   event.preventDefault();
   let city = document.getElementById("city-name");
   let apiKey = "a95c2c6739994ba4903e007ee817e7d1";
@@ -101,8 +102,7 @@ function showMyLocationTemp(position) {
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
   let apiKey = "a95c2c6739994ba4903e007ee817e7d1";
-  let city = document.getElementById("city-name");
-  let weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&appid=${apiKey}&units=metric&lat=${lat}&lon=${lon}`;
+  let weatherUrl = `https://api.openweathermap.org/data/2.5/weather?&appid=${apiKey}&units=metric&lat=${lat}&lon=${lon}`;
   axios.get(weatherUrl).then(showRealData);
 }
 
