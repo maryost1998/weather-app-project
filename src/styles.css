@@ -1,14 +1,15 @@
 .container {
   background-color: #245890;
   color: #fff;
-  background-size: cover;
   padding-bottom: 50px;
   text-align: center;
   font-family: "Pangolin", cursive;
+
+
 }
 
 h1 {
-  margin-top: 100px;
+  margin-top: 50px;
   margin-bottom: 30px;
   text-shadow: 5px 5px 10px rgba(102, 111, 120, 0.4);
   font-family: "Pangolin", cursive;
@@ -27,8 +28,10 @@ a {
   color: #fff;
 }
 
+
+
 .row {
-  margin-top: 100px;
+  margin-top: 50px;
 }
 .col {
   line-height: 25mm;
@@ -54,6 +57,7 @@ a {
 .item-img {
   width: 60px;
 }
+
 #time {
   margin: 0;
 }

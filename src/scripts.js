@@ -1,46 +1,4 @@
-// let weather = {
-//   paris: {
-//     temp: 19.7,
-//     humidity: 80,
-//   },
-//   tokyo: {
-//     temp: 17.3,
-//     humidity: 50,
-//   },
-//   lisbon: {
-//     temp: 30.2,
-//     humidity: 20,
-//   },
-//   "san francisco": {
-//     temp: 20.9,
-//     humidity: 100,
-//   },
-//   moscow: {
-//     temp: -5,
-//     humidity: 20,
-//   },
-// };
 
-// let city = prompt("Enter a city");
-// if(city !== null){
-// city = city.toLowerCase();
-// }
-// if (weather[city] !== undefined) {
-//   let temperature = weather[city].temp;
-//   let humidity = weather[city].humidity;
-//   let celsiusTemperature = Math.round(temperature);
-//   let fahrenheitTemperature = Math.round(temperature * 1.8 + 32);
-
-//   alert(
-//     `It is currently ${celsiusTemperature}°C (${fahrenheitTemperature}°F) in ${city} with a humidity of ${humidity}%`
-//   );
-// } else {
-//   alert(
-//     `Sorry we don't know the weather for this city, try going to https://www.google.com/search?q=weather+${city}`
-//   );
-// }
-
-// challenge 2
 function showTime() {
   let days = [
     "Monday",
@@ -78,6 +36,7 @@ function showRealData(response) {
   headerConditionsWeather.innerHTML = weatherCondition;
 
   let temp = Math.round(response.data.main.temp);
+  celsiusTemperature =temp;
 
   let temperatureHeader = document.getElementById("degree");
   temperatureHeader.innerHTML = temp;
@@ -109,9 +68,32 @@ function showMyLocationTemp(position) {
 function showMyCurrentLocationWeather(){
   navigator.geolocation.getCurrentPosition(showMyLocationTemp);
 }
+function ShowCeleDegree(event){
+  event.preventDefault();
+  let degree = document.querySelector("#degree");
+  degree.innerHTML =`${celsiusTemperature}`;
+
+
+}
+
+function ShowFarenDegree(event){
+  event.preventDefault();
+  let degree = document.querySelector("#degree");
+  console.log(degree);
+  degree.innerHTML =`${Math.round((celsiusTemperature * 1.8) + 32)}`;
+
+
+}
+let celsiusTemperature = null;
 
 let searchEngine = document.querySelector(".d-flex");
 searchEngine.addEventListener("submit", getRequest);
 
 let currentLocation = document.querySelector("#current-location");
 currentLocation.addEventListener("click", showMyCurrentLocationWeather);
+
+let celeElement = document.querySelector("#cele");
+celeElement.addEventListener("click", ShowCeleDegree);
+
+let farenElement = document.querySelector("#faren");
+farenElement.addEventListener("click", ShowFarenDegree);
