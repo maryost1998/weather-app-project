@@ -36,7 +36,7 @@ function showRealData(response) {
   headerConditionsWeather.innerHTML = weatherCondition;
 
   let temp = Math.round(response.data.main.temp);
-  celsiusTemperature =temp;
+
 
   let temperatureHeader = document.getElementById("degree");
   temperatureHeader.innerHTML = temp;
@@ -68,23 +68,6 @@ function showMyLocationTemp(position) {
 function showMyCurrentLocationWeather(){
   navigator.geolocation.getCurrentPosition(showMyLocationTemp);
 }
-function ShowCeleDegree(event){
-  event.preventDefault();
-  let degree = document.querySelector("#degree");
-  degree.innerHTML =`${celsiusTemperature}`;
-
-
-}
-
-function ShowFarenDegree(event){
-  event.preventDefault();
-  let degree = document.querySelector("#degree");
-  console.log(degree);
-  degree.innerHTML =`${Math.round((celsiusTemperature * 1.8) + 32)}`;
-
-
-}
-let celsiusTemperature = null;
 
 let searchEngine = document.querySelector(".d-flex");
 searchEngine.addEventListener("submit", getRequest);
@@ -92,8 +75,3 @@ searchEngine.addEventListener("submit", getRequest);
 let currentLocation = document.querySelector("#current-location");
 currentLocation.addEventListener("click", showMyCurrentLocationWeather);
 
-let celeElement = document.querySelector("#cele");
-celeElement.addEventListener("click", ShowCeleDegree);
-
-let farenElement = document.querySelector("#faren");
-farenElement.addEventListener("click", ShowFarenDegree);

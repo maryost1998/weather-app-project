@@ -15,6 +15,9 @@ h1 {
   font-family: "Pangolin", cursive;
   font-size: 30px;
 }
+h2{
+  font-size: 27px;
+}
 h3 {
   font-size: 25px;
   margin-top: 15px;
@@ -51,7 +54,7 @@ a {
 }
 .title-img {
   color: #fbe70e;
-  width: 50px;
+  width: 70px;
   margin-bottom: 20px;
 }
 
@@ -68,9 +71,8 @@ a {
 #degree {
   display: inline;
 }
-#cele-and-far {
-  display: inline;
-
+#cele{
+  font-size: 25px;
 }
 #current-location {
   margin-left: 10px;
