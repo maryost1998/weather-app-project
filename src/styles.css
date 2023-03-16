@@ -1,7 +1,7 @@
 .container {
   background-color: #245890;
   color: #fff;
-  padding-bottom: 50px;
+  padding-bottom: 10px;
   text-align: center;
   font-family: "Pangolin", cursive;
 
@@ -79,4 +79,7 @@ a {
 }
 #code-source {
   color: gold;
+}
+#forecast{
+  font-size: 20px;
 }
