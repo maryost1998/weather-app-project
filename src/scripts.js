@@ -20,12 +20,20 @@ function showTime() {
     let headerNumber4 = document.querySelector("#time");
     headerNumber4.innerHTML = `${hour}: ${minutes}`;
 }
-function formatDay(timezone){
-  let date = new Date(timezone * 1000);
-  let day = date.getDay();
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
-  return days[day];
+function formatDay(timezone) {
+    let date = new Date(timezone * 1000);
+    let day = date.getDay();
+    let days = [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday",
+    ];
+    return days[day];
 }
 
 function showPredictionWeather(response) {
@@ -37,7 +45,7 @@ function showPredictionWeather(response) {
     let forecastHtml = ` <div class="row">`;
 
     forecast.forEach(function (forecastDay, index) {
-        if(index<5) {
+        if (index < 4) {
             forecastHtml =
                 forecastHtml + `
    <div class="col">
@@ -45,8 +53,7 @@ function showPredictionWeather(response) {
    <img src="http://openweathermap.org/img/wn/${
                     forecastDay.weather[0].icon
                 }@2x.png"" class="item-img" />
-   <h4>${Math.round(
-                    forecastDay.temp.day)}</h4>
+   <h4>${Math.round(forecastDay.temp.day)} °C</h4>
    </div>`;
         }
     });
@@ -93,7 +100,7 @@ function showRealData(response) {
 function getRequest(event) {
 
     event.preventDefault();
-    let city = document.getElementById("city-name");
+    let city = document.getElementById("search-value");
     let apiKey = "a95c2c6739994ba4903e007ee817e7d1";
     let weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&appid=${apiKey}&units=metric`;
     axios.get(weatherUrl).then(showRealData);
